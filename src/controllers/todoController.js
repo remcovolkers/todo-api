@@ -1,7 +1,6 @@
 const Todo = require('../models/Todo');
 
 exports.create = async (req, res) => {
-    console.log(req);
     try {
         const todo = new Todo({
             title: req.body.title,
@@ -35,6 +34,7 @@ exports.readOne = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
+    console.log(req.params);
     try {
         const todo = await Todo.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
